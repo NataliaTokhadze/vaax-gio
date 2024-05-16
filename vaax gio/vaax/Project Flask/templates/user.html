@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Hello {{session['user']}}</h2>
+    {% for subject in subjects %}
+        <p>Subject: {{ subject }}</p>
+        {% if subject == "Howl\'s moving castle" %}
+            <p>Exam: July 1st</p>
+        {% elif subject == 'My neighbor Totoro' %}
+            <p>Exam: July 5th</p>
+        {% else %}
+            <p>Exam: July 13th</p>
+        {% endif %}
+    {% endfor %}
+    <a href="{{url_for('home')}}">Back to Main Page</a>
+{% endblock %}
